@@ -1,0 +1,40 @@
+#include<stdio.h>
+
+int counter(int n); 
+
+int main()
+{
+    int n;
+
+    printf("Input the number: ");      //Getting the no to be checked
+    scanf("%d",&n);
+
+    int count=counter(n);              //setting up the counter
+    printf("The number of bits set to one in the no is %d is %d.\n",n,count);
+
+    return 0;
+}
+ int counter(int n)
+{
+    int count = 0;
+    if(n>0){                    //Procedure for if positive integer is inputed
+
+        while (n){
+
+            count += n & 1;
+            n >>= 1;
+        }
+        return count;
+    }
+    if(n<0){                    //Procedure for if negative integer is inputed
+
+        int k=-n;
+        while(k){
+
+            count+=k&1;
+            k>>=1;
+        }
+        return count+1;
+    }
+
+}
